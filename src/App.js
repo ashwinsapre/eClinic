@@ -9,10 +9,12 @@ import showUsers from './components/showUsers.component';
 function App() {
   return (
     <Router>
-      <Navbar />
-      <br/>
-      <Route path="/show" component={showUsers}></Route>
-      <Route path="/add" component={newUser}></Route>
+      <div className="container">
+        <Navbar />
+        <br/>
+        <Route path="/show" component={showUsers}></Route>
+        <Route path="/add" component={newUser}></Route>
+      </div>
     </Router>
   );
 }
