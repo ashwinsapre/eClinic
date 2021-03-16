@@ -31,7 +31,14 @@ export default class newUser extends Component{
             age:this.state.age
         }
         console.log(user)
-        window.location = '/'
+        axios.post("http://localhost:5000/users/add", user)
+            .then(res => console.log(res.data))
+            .catch(err =>console.log("error:",err))
+        
+            this.setState({
+            username:'',
+            age:0
+        })
     }
     render(){
         return(

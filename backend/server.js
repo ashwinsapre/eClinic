@@ -18,7 +18,9 @@ conn.once('open', ()=>{
 });
 
 const userrouter=require('./routes/users')
+const showuserrouter=require('./routes/showusers')
 app.use('/users', userrouter)
+app.use('/show', showuserrouter)
 
 app.listen(port, ()=>{
     console.log('Server running');
