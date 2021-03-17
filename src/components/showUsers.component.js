@@ -4,16 +4,26 @@ import axios from "axios"
 export default class showUsers extends Component{
     constructor(props){
         super(props)
+
+        this.state={
+            users:[]
+        }
     }
     componentDidMount(){
         axios.get('http://localhost:5000/show')
-            .then(res=>console.log(res))
+            .then(res=>{
+                if (res.data.length>0) {
+                    this.setState({
+                        users:res.data.map(user=>user.username)
+                    })
+                }
+            })
             .catch(err=>console.log('ERROR:', err))
     }
     render(){
         return(
             <div>
-                Show all users.
+                {this.state.users}
             </div>
         )
     }
